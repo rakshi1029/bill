@@ -1,0 +1,727 @@
+
+										LAB SHEET 9
+
+1.	Write A C# Code To Demonstrate The Delegate. 
+namespace ConsoleApp8
+{
+    public delegate void SimpleDelegate();
+    class del1
+    {
+        public void display()
+        {
+            Console.WriteLine("Hi");
+        }
+        static void Main(string[] args)                                                                                                                                                                                                                                                                                                                                                                         
+        {
+            del1 obj1 = new del1();
+            SimpleDelegate obj2 = new SimpleDelegate(obj1.display);
+            obj2();
+            Console.ReadKey();
+        }
+    }
+}
+
+ 
+
+
+
+2.	Write a code to show the concept of delegate for encapsulating different methods 
+namespace ConsoleApp8
+{
+    delegate int Calculate(int n1, int n2);
+    class Program
+    {
+        public static int Multiply(int i, int j)
+        {
+            return (i * j);
+
+        }
+        public static int add(int i, int j)
+        {
+            return (i + j);
+
+        }
+        static void Main(string[] args)
+        {
+            int a = 90;
+            int b = 78;
+            Calculate obj1 = Program.add;
+            Console.WriteLine("result is" + obj1(a, b));
+            Calculate obj2 = new Calculate(Program.Multiply);
+            Console.WriteLine("result of Multiplication  is" + obj2(a, b));
+            Console.ReadKey();
+        }
+
+    }
+}
+
+ 
+
+3.	Write a code to handle the event in c#.
+
+namespace ConsoleApp8
+{
+    delegate void MyEventHandler();
+    class MyEvent
+    {
+        public event MyEventHandler SomeEvent;
+        public void OnSomeEvent()
+        {
+            if (SomeEvent != null)
+                SomeEvent();
+        }
+    }
+    class Program11
+    {
+        static void handler()
+        {
+            Console.WriteLine("Event occured");
+        }
+        static void Main(string[] args)
+        {
+
+            MyEvent evt = new MyEvent();
+            evt.SomeEvent += new MyEventHandler(Program11.handler);
+            evt.OnSomeEvent();
+
+        }
+
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+											LAB SHEET 10
+
+1.	Developer is writing code for dividing two numbers. If the user enters 0 in the second number, an exception should be raised. Handle the exception with the appropriate code.
+
+namespace ConsoleApp10
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+                    
+            Console.WriteLine("Enter first number");
+            a= Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter second number");
+            b= Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                int c = a/b;
+                Console.WriteLine("Answer is  " + c);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Second Number  cannot be zero");
+            }
+                      
+            Console.ReadKey();
+        }
+       
+    }
+}
+ 
+ 
+
+
+2.	Student stores the data in an Array. Discuss the code to handle Array outofbounds exception.
+namespace ConsoleApp10
+{
+    internal class Class1
+    {
+        static void Main()
+        {
+            int[] numbers = { 0, 1, 23 };
+            try
+            {
+                Console.WriteLine(numbers[3]);
+                
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                Console.WriteLine(" finally block executes always whether exceptionis raised or not");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+
+ 
+
+
+3.	Admin executive of the university is entering the university name for the students. If he enters the name wrongly, exception should be raised.
+namespace ConsoleApp10
+{
+    internal class Collegename
+    {
+          static void Main()
+        {
+            string s;
+            Console.WriteLine("Enter your university name");
+            try
+            {
+                s = Console.ReadLine();
+                if (s.ToUpper()=="PRESIDENCY")
+                {
+                    Console.WriteLine("Welcome");
+                }
+                else
+                {
+                    throw new Exception("You have entered wrong input");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            Console.ReadKey();
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------
+
+										Lab Sheet 11 
+
+DataBase  Connectivity using ADO.NET 
+Steps for database Connectivity 
+1. OPEN ==> SQL SERVER MANAGEMENT STUDIO. CLICK ON CONNECT 
+
+ 
+2. The screen appears as follows:  Copy the server name from this dialog 
+box
+ 
+ 3. Now you have to create new Database, Right Click on Database and follow the steps as given 
+below 
+ 4. Write the Database name University. Then Click OK button 
+5. Database creation is successful. You can see your database in the right pane. 
+6. Then you have to create table in the database University. Expand University, you can view 
+Tables in that.  
+
+ 
+Expand the tables :  
+ 
+ 
+
+7. For Creating a new Table, RIGHT CLICK → TABLE→ NEW TABLE 
+8. ADD COLUMN NAME (EMPID) ,  TYPE(INT). Empname  nchar data  also. 
+
+ 
+9. RIGHT CLICK ON LEFT CORNER(OF RESPECTIVE COULMN)  AND SET AS PRIMARY KEY 
+ 
+ 
+10. Now Table is ready. SAVE the table now and set Table name as Employee and click OK 
+button
+ 
+11. Right click on Tables and  Click on Refresh. You can view your table employee. 
+
+12. For entering data into the table, Right click on Employee table 
+13. Select The Following→ Edit Top 200 Rows. You can view the following screens 
+ 
+14. You can make the entries  as required 
+
+ 
+ 
+15.Click Enter After The Last Entry….To Save Your Data 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+If You did not copy the server already,Follow these steps before going to VS 2022. 
+TO COPY THE NAME OF SERVER 
+Successfully Completed Database creation, Table creation and adding records into the table. Now we 
+can connect this table using VS 2022 . 
+
+DB CONNECTIVITY USING VS COMMUNITY 2022 
+1. GOTO VIEW CLICK ON SERVER EXPLORER 
+2. RIGHT CLICK ON  → DATA CONNECTION → ADD CONNECTION 
+16 
+3. PASTE THE SERVER NAME (copied already)  (IF NOT DISPLAYED BY DEFAULT) 
+NOTE : SERVER NAME IS DIFFERENT FOR EVERY SYSTEM IN THE UNIVERSITY.  
+
+4. SELECT THE DATABASE FROM THE DROP DOWN LIST 
+5. CLICK ON → TEST CONNECTION 
+18 
+6. THE SCREEN WILL BE 
+7. CLICK ON OK . We have successfully connected with the database. Now can write a code in 
+Console Application, Windows Application as well as Web application. 
+ALL THE BEST 
+ 
+ 
+1.University stores the employee details in the database. Write a code to retrieve the data 
+and display the employee details. 
+Create  a new Console Application(.NET FRAMEWORK). Don’t forget to check framework in 
+the brackets. 
+using System; 
+ 
+using System.Data.SqlClient; 
+ 
+namespace ConsoleApp10 
+{ 
+    internal class dbconnectivity 
+    { 
+        static void Main() 
+        { 
+            string connString = "Data Source = 
+KOMALAVALLI1970\\SQLEXPRESS;Initial Catalog = UNIVERSITY; Integrated Security = 
+True "; 
+            string sql = @"select * from employee"; 
+            SqlConnection conn = new SqlConnection(connString); 
+ 
+            try 
+            { 
+                conn.Open(); 
+                SqlCommand cmd = new SqlCommand("select * from employee", conn); 
+                SqlDataReader dr = cmd.ExecuteReader(); 
+                while (dr.Read()) 
+                { 
+                    Console.WriteLine(dr[0]); 
+                    Console.WriteLine(dr[1]); 
+                    Console.WriteLine(""); 
+                } 
+            } 
+ 
+            catch (Exception e) 
+            { 
+                Console.WriteLine("Error: " + e); 
+            } 
+            finally 
+            { 
+                conn.Close(); 
+            } 
+            Console.ReadKey(); 
+        } 
+    } 
+ 
+ 
+ 
+}     
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+										LAB SHEET 12 
+
+1. Shop keeper wants to calculate the product price using Windows form. 
+Design a Windows form for collecting Product ID , name, qty, and 
+Price. Show the output by clicking on the calculate button and reset 
+the form by clicking the reset button. User should not change the total 
+amount. 
+using System; 
+using System.Windows.Forms; 
+namespace Basiccontrols 
+{ 
+public partial class Product : Form 
+{ 
+public Product() 
+{ 
+InitializeComponent(); 
+} 
+        private void button1_Click(object sender, EventArgs e) 
+        { 
+            MessageBox.Show(" You have selected " + textBox2.Text); 
+            int a = Convert.ToInt32(textBox3.Text); 
+            int b = Convert.ToInt32(textBox4.Text); 
+            int c = a * b; 
+            textBox5.Text = c.ToString(); 
+            textBox5.Enabled = false; 
+ 
+        } 
+ 
+        private void button2_Click(object sender, EventArgs e) 
+        { 
+            textBox1.Text = ""; 
+            textBox2.Text = ""; 
+            textBox3.Text = ""; 
+            textBox4.Text = ""; 
+            textBox5.Text=""; 
+             
+        } 
+    } 
+} 
+ 
+
+
+2. University is asking students to fill up the registration form for the new 
+semester. Design a Windows application form with appropriate fields. 
+ 
+using System; 
+using System.Windows.Forms; 
+ 
+namespace Basiccontrols 
+{ 
+    public partial class Form1 : Form 
+    { 
+        string s1, s2, s3, s4; 
+ 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) 
+        { 
+            s4 = comboBox1.Text; 
+        } 
+ 
+        private void button2_Click(object sender, EventArgs e) 
+        { 
+            textBox1.Text = ""; 
+            textBox2.Text = ""; 
+        } 
+ 
+        private void button1_Click(object sender, EventArgs e) 
+        { 
+            s1 = textBox1.Text; 
+            s2= textBox2.Text; 
+            label9.Visible = true; 
+            label9.Text = (" Welcome!!!  " + " Your roll number is " + s1 + " 
+Your name is " + s2 + " Your branch is " + s4); 
+            MessageBox.Show("Registered Successfully"); 
+ 
+        } 
+ 
+        public Form1() 
+        { 
+            InitializeComponent(); 
+        } 
+ 
+        private void radioButton1_CheckedChanged(object sender, EventArgs e) 
+        { 
+            if(radioButton1.Checked) 
+            { 
+                s3 = radioButton1.Text; 
+            } 
+            else 
+            { 
+                s3= radioButton2.Text; 
+            } 
+            MessageBox.Show("Your Gender is  " + s3); 
+        } 
+    } 
+} 
+--------------------------------------------------------------------------------------------------------------------------------
+
+										LAB SHEET 13 
+1. Create a windows form to display faculty details of the presidency 
+university in a data grid view. 
+Steps : 
+1. Darg and Drop the data grid view in a windows form. 
+2. Click On the arrow and Click  Choose project Data source and Add Project Source. Check 
+Database should be selected 
+3. Click on Next. 
+4. Click on next. Select the connection from the drop down 
+ 
+ 
+5. Click on Next 
+ 
+   6.   Select the table and columns from the above screen and click Finish.  
+ 
+ 
+ 
+ 
+ 
+  
+2. Class Teacher is storing the notes in the drive. Students are requested to 
+register with user name and password for downloading the notes. 
+Design a sign-up form for the task 
+              
+ 
+using System; 
+using System.Data.SqlClient; 
+using System.Windows.Forms; 
+ 
+namespace LoginForm 
+{ 
+    public partial class SignUpForm : Form 
+    { 
+        SqlCommand cmd; 
+        SqlConnection conn; 
+        SqlDataReader dr; 
+        public SignUpForm() 
+        { 
+            InitializeComponent(); 
+        } 
+ 
+        private void button1_Click(object sender, EventArgs e) 
+        { 
+            //Connect To SQL Server DB 
+            string connString = "Data Source=LAPTOP
+2UETRURU\\SQLEXPRESS01;Initial Catalog=UNIVERSITY;Integrated Security=True"; 
+            conn = new SqlConnection(connString); 
+            try 
+            { 
+                conn.Open(); 
+                MessageBox.Show("Connected To SQL DB!"); 
+            } 
+            catch (Exception e1) 
+            { 
+                MessageBox.Show("error" + e1); 
+            } 
+ 
+            //Validation Section 
+            if (textBox1.Text != string.Empty || textBox2.Text != string.Empty || 
+textBox3.Text != string.Empty) 
+            { 
+                if (textBox2.Text == textBox3.Text) 
+                { 
+                    cmd = new SqlCommand("select * from user123 where username='" 
++ textBox1.Text + "'", conn); 
+                    dr = cmd.ExecuteReader(); 
+                    if (dr.Read()) 
+                    { 
+                        dr.Close(); 
+                        MessageBox.Show("Username Already exist please try 
+another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                    } 
+                    else 
+                    { 
+                        dr.Close(); 
+                        cmd = new SqlCommand("insert into user123 
+values(@username,@password)", conn); 
+                        cmd.Parameters.AddWithValue("username", textBox1.Text); 
+                        cmd.Parameters.AddWithValue("password", textBox2.Text); 
+                        cmd.ExecuteNonQuery(); 
+                        MessageBox.Show("Your Account is created . Please login 
+now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+ 
+                    } 
+                } 
+                else 
+                { 
+                    MessageBox.Show("Please enter both password same ", "Error", 
+MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                } 
+            } 
+            else 
+            { 
+                MessageBox.Show("Please enter value in all field!", "Error", 
+MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            } 
+        } 
+ 
+        private void button2_Click(object sender, EventArgs e) 
+        { 
+            textBox1.Text = ""; 
+            textBox2.Text = ""; 
+            textBox3.Text = ""; 
+        } 
+    } 
+} 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3. Create a login(Sign-in) screen and prompts for the user  name and 
+Password. If the user exists in the database, show the welcome message 
+to the user when the button is clicked. 
+  
+ 
+using System; 
+using System.Data.SqlClient; 
+using System.Windows.Forms; 
+ 
+namespace LoginForm 
+{ 
+    public partial class SignInForm : Form 
+    { 
+        public SignInForm() 
+        { 
+            InitializeComponent(); 
+        } 
+ 
+        private void button1_Click(object sender, EventArgs e) 
+        { 
+            string a = textBox1.Text; 
+            string b = textBox2.Text; 
+ 
+            string sql = "select * from user123 where username='" + a + "' and 
+password='" + b + "'"; 
+ 
+            string connString = "Data Source=LAPTOP
+2UETRURU\\SQLEXPRESS01;Initial Catalog=UNIVERSITY;Integrated Security=True"; 
+            SqlConnection conn = new SqlConnection(connString); 
+ 
+            try 
+            { 
+                conn.Open(); 
+                SqlCommand cmd = new SqlCommand(sql, conn); 
+                SqlDataReader dr = cmd.ExecuteReader(); 
+                if (dr.Read()) 
+                { 
+                    MessageBox.Show(" You are authenticated"); 
+                } 
+                else 
+                { 
+                    MessageBox.Show(" Invalid Credentals"); 
+                } 
+            } 
+ 
+            catch (Exception e1) 
+            { 
+                MessageBox.Show("Error: " + e1); 
+            } 
+ 
+            finally 
+            { 
+                conn.Close(); 
+            } 
+        } 
+ 
+        private void button2_Click(object sender, EventArgs e) 
+        { 
+            textBox1.Text = ""; 
+            textBox2.Text = ""; 
+        } 
+    } 
+}  
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+										LAB SHEET 14 
+Steps for Creating Web Form 
+1. Create new Project 
+2. Select  ASP.Net web application(.NET framework) 
+3. Select Empty and Select Web forms Checkbox in Add folders and core 
+references
+ 4. Click on Create button. 
+5. Select the solution, right click and add New item 
+6. Select Web forms and add. 
+1. Create a Simple  Web form to show a welcome message and Connect 
+with various departments of  University 
+Controls : 3 Label controls, 1 Text Box,  1 List Box (Drop Down List) 
+Procedure: 
+1. Drag and Drop the controls. 
+2. Right click and open properties window. 
+3. Set the text property of all controls. 
+4. In the Drop Down list, select items property and click on three dots … 
+5. Click on add button and Text one by one. 
+6. After adding all items, click ok. 
+Code : 
+//Click on Dropdown list box and write this code 
+protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e) 
+{ 
+if(DropDownList1.SelectedIndex==1) 
+      { 
+Response.Redirect("https://presidencyuniversity.in/school/school-of
+design/"); 
+ 
+       } 
+       else if(DropDownList1.SelectedIndex==2) 
+       { 
+Response.Redirect("https://presidencyuniversity.in/school/school-of
+law/"); 
+       } 
+       else if(DropDownList1.SelectedIndex ==3) 
+       { 
+                Response.Redirect("https://presidencyuniversity.in/school/school
+of-commerce/"); 
+       } 
+       else if (DropDownList1.SelectedIndex == 4) 
+       { 
+Response.Redirect("https://presidencyuniversity.in/school/school-of
+engineering"); 
+       } 
+} 
+//Button Click Code 
+protected void Button1_Click(object sender, EventArgs e) 
+{ 
+Response.Write(" Welcome to ASP.NEt world " + TextBox1.Text) 
+} 
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+										LAB SHEET 15 
+The university is organizing a cultural festival and organizing teams wants to collect 
+registration for various events with the help of web page. Design a registration form for 
+collecting the participant details and validate the data using validators. 
+1. Go to Web config file ,add the following before the configuration end tag: 
+
+Snapshot of the “Web.config” is as follows: 
+2. Design a Webform with 7 labels, 5 Textboxes, 3 radio Buttons, 1 button and validators 
+also. Drag the validator and paste in side of the text box. 
+Textbox1 
+Textbox2 
+RequiredValidator 
+Compare validator 
+Textbox4 
+Textbox5 
+Range Validator 
+Regular Expression Validator 
+3. Set The following properties for different controls. 
+Label : Set Text property as per the form 
+Radio Button1 :  Text property set to Dancing 
+Radio Button2 :  Text property set to  Singing 
+Radio Button3 :  Text property set to Mono Act 
+Text box Ref  
+Validator 
+Error Message 
+Name 
+Required Field Validator 
+Cannot Be blank 
+Behaviour 
+Password 
+ControltoValidate: Textbox1 
+Compare Validator 
+Both are not Matching 
+ControltoCompare: Textbox3 
+ControltoValidate: Textbox2 
+Operator: Equal 
+Age 
+Range Validator 
+Should be between 18 to 35 
+ControltoValidate: TextBox4 
+Maximumvalue :35 
+Minimumvalue :18 
+Type: Integer 
+Email 
+RegualExpression 
+Validator 
+Invalid Email ID 
+ControltoValidate: TextBox5 
+ValidationExpression: 
+Click on three dots and select 
+Internet Email address 
+ 
+ Code: 
+//Click on Radio Button and write the following code 
+protected void RadioButton1_CheckedChanged(object sender, EventArgs e) 
+        { 
+            string s; 
+            if (RadioButton1.Checked) 
+            {  
+                 s= RadioButton1.Text; 
+            } 
+            else if(RadioButton2.Checked) 
+            { 
+                s= RadioButton2.Text; 
+            } 
+            else 
+            { 
+                s = RadioButton3.Text; 
+            } 
+            Session["event"] = s; 
+        } 
+//Click on button and write the following code: 
+protected void Button1_Click(object sender, EventArgs e) 
+        { 
+            Response.Write(TextBox1.Text + "  registered successfully in the 
+event " + Session["event"]); 
+            
+        } 
+
+
+<appSettings> 
+<add key="ValidationSettings:UnobtrusiveValidationMode" value="None" /> 
+</appSettings> 

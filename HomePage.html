@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>AutoBilling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class = "Background"></div>
+    <div class="Header">
+        <h1 style="color:rgb(243, 94, 94);font-size:300%;">Smart Shopping Trolley</h1>
+    </div>
+    <table class="Container">
+        <tr>
+            <td>
+                <div class="Cart">
+                    <h2>Your Cart :</h2>
+                </div>
+            </td>
+            <td>
+                <div class="Price">
+                    <h2>Price :</h2>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="Items">
+                    <table cellspacing="20px" id="list">
+                        <!-- <tr><td>1. Kurkure | Naughty Tomato</td></tr>
+                        <tr><td>2. Haldiram | Tasty Nuts</td></tr>
+                        <tr><td>3. Oreo Orignal</td></tr> -->
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="Rate">
+                    <table cellspacing ="20px" id="cost">
+                        <!-- <tr><td>Rs. 20.00</td></tr>
+                        <tr><td>Rs. 10.00</td></tr>
+                        <tr><td>Rs. 30.00</td></tr> -->
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">
+        <h2 id="sum"></h2>
+        <button id="delete-cart" onclick="clearCart()">Clear Cart</button>
+        
+    </div>
+<center>
+    <button id="print-button" onclick="printBill()">Generate Bill</button>
+</center>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="backend.js"></script>
+</body>
+</html>

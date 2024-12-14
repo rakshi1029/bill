@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<head>
+    <title>AutoBilling</title>
+    <style>
+        * {
+    margin : 0;
+    padding : 0;
+}
+.Background {
+    position: absolute; 
+    height: 100%; 
+    width: 100%; 
+    background-image: url("ecommerce-online-shopping-seamless-background-pattern-FXA4NF.jpg"); 
+    background-size: cover; 
+    filter: blur(4px);
+    z-index: -1;
+}
+.Header {
+    padding-top: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Cart {
+    background-color:cornsilk;
+    padding : 25px;
+    padding-right: 100px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 4px double #f24343;
+}
+.Price {
+    background-color:cornsilk;
+    padding : 25px;
+    padding-right: 24%;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 4px double #f24343;
+}
+.Container {
+    width:100%
+}
+.Items {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color:white;
+    padding : 25px;
+    padding-right: 100px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 3px dashed black;
+}
+.Rate {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color:white;
+    padding : 25px;
+    padding-right: 100px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 3px dashed black;
+}
+#footer:empty {
+    display: none;
+ }
+#footer {
+    text-align: center;
+    background-color:cornsilk;
+    padding : 25px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 50px;
+    border-radius: 25px;
+    border: 4px double #f5bd5c;
+}
+
+    </style>
+</head>
+<body>
+    <div class = "Background"></div>
+    <div class="Header">
+        <h1>AutoBiLL</h1>
+    </div>
+    <table class="Container">
+        <tr>
+            <td>
+                <div class="Cart">
+                    <h2>Your Cart :</h2>
+                </div>
+            </td>
+            <td>
+                <div class="Price">
+                    <h2>Price :</h2>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="Items">
+                    <table cellspacing="20px" id="list">
+                        <!-- <tr><td>1. Kurkure | Naughty Tomato</td></tr>
+                        <tr><td>2. Haldiram | Tasty Nuts</td></tr>
+                        <tr><td>3. Oreo Orignal</td></tr> -->
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="Rate">
+                    <table cellspacing ="20px" id="cost">
+                        <!-- <tr><td>Rs. 20.00</td></tr>
+                        <tr><td>Rs. 10.00</td></tr>
+                        <tr><td>Rs. 30.00</td></tr> -->
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id ="footer">
+        <h2 id="sum"></h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script>
+        const URL = "https://teachablemachine.withgoogle.com/models/1ATZNxu48/";
+
+let model, webcam, labelContainer, maxPredictions;
+let detectedObjects = {}; // To store detected objects
+let j = 1;
+let total = 0.00;
+
+// Load the image model and setup the webcam
+async function init() {
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";
+
+    // load the model and metadata
+    model = await tmImage.load(modelURL, metadataURL);
+    maxPredictions = model.getTotalClasses();
+
+    // Setup webcam with default constraints
+    webcam = new tmImage.Webcam(200, 200); // width, height
+    await webcam.setup(); // request access to the webcam
+    await webcam.play();
+    window.requestAnimationFrame(loop);
+
+    // append elements to the DOM
+    labelContainer = document.getElementById("label-container");
+    for (let i = 0; i < maxPredictions; i++) { // and class labels
+        labelContainer.appendChild(document.createElement("div"));
+    }
+}
+
+async function loop() {
+    webcam.update(); // update the webcam frame
+    await predict();
+    window.requestAnimationFrame(loop);
+}
+
+// run the webcam image through the image model
+async function predict() {
+    // predict can take in an image, video or canvas html element
+    const prediction = await model.predict(webcam.canvas);
+    const tbody = document.querySelector('#list');
+    const tprice = document.querySelector('#cost');
+
+    
+    for (let i = 0; i < maxPredictions; i++) {
+        const className = prediction[i].className;
+        const probability = prediction[i].probability.toFixed(2);
+        // labelContainer.childNodes[i].innerHTML = `${className}: ${probability}`;
+        
+        // Check for object detection threshold, e.g., 0.5
+        if (probability >= 0.8 && !(className in detectedObjects) && className!="NONE" ) {
+            const newRow = document.createElement('tr');
+            const newRow1 = document.createElement('tr');
+            newRow.innerHTML = `<td>${j++}. ${className}</td>`;
+            newRow1.innerHTML = `<td>Rs. 10.00</td>`;
+            tbody.appendChild(newRow);
+            tprice.appendChild(newRow1);
+            total=total+10.00;
+            document.getElementById("sum").innerHTML = "Total Bill : Rs. "+total+".00";
+            detectedObjects[className] = true; // Record the detected object
+        }
+    }
+}
+
+// Start the camera automatically when the page loads
+window.addEventListener('load', init);
+
+    </script>
+</body>
+</html>

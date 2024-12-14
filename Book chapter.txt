@@ -1,0 +1,1037 @@
+									Lab Sheet 2(Module 2) 
+
+ 
+Level 1:   Write a C# program to display the welcome to message to the user. User name 
+must be provided using command line arguments 
+Solution : 
+namespace My_First_Application 
+{ 
+} 
+internal class name1 
+{ 
+} 
+static void Main(string[] args) 
+{ 
+} 
+string fname = args[0]; 
+string lname = args[1];    
+Console.WriteLine(" welcome to C# world " + fname + " " +lname); 
+Level 2:  University wants to store the student details. Get the student details such as Roll 
+number, fname, lname, Semester, Specialization and display all details. Read the user inputs 
+using console. 
+Solution 
+namespace My_First_Application 
+{ 
+class readinginput 
+{   static void Main() 
+{ 
+Console.WriteLine(" Enter Roll Number"); 
+string rno = Console.ReadLine(); 
+Console.WriteLine("Enter fname"); 
+string fname = Console.ReadLine(); 
+Console.WriteLine("Enter lname"); 
+string lname = Console.ReadLine(); 
+Console.WriteLine("Enter semester"); 
+string sem = Console.ReadLine(); 
+Console.WriteLine("Enter your specialization"); 
+string special = Console.ReadLine(); 
+Console.WriteLine(" your roll numer is " + rno + " Your name is " + fname + " 
+" + lname); 
+Console.Write(" Your semester is " + sem + " Your specialization is" + special); 
+} 
+} 
+} 
+
+
+Experiment 3[Module 2] 
+
+
+Level 1: Calculate the salary of an employee using Command line arguments. Provide Basic, 
+commission using Command Line arguments.(15% of basic is HRA and 30% of basic is DA) 
+Solution: 
+namespace My_First_Application 
+{ 
+internal class Program 
+{ 
+} 
+} 
+static void Main(string[] args) 
+{ 
+} 
+int basic = Convert.ToInt32(args[0]); 
+int comm = Convert.ToInt32(args[1]); 
+float hra = basic * 0.15f; 
+float da = basic * 0.3f; 
+float total = basic + comm + hra + da; 
+Console.WriteLine("total salary " + total); 
+
+
+Level 2: XYZ company stores employee details such as empno, empname, designation, 
+basic and total salary. Get user inputs and display all details. 
+Solution : 
+namespace My_First_Application 
+{ 
+class readinginput 
+{   static void Main() 
+{ 
+Console.WriteLine("Enter empno"); 
+string eno = Console.ReadLine(); 
+Console.WriteLine("Enter employee name"); 
+string ename = Console.ReadLine(); 
+Console.WriteLine("Enter your designation"); 
+string desig = Console.ReadLine(); 
+Console.WriteLine("Enter your basic salary"); 
+int basic = Convert.ToInt32(Console.ReadLine()); 
+float hra = basic * 0.15f; 
+float da = basic * 0.3f; 
+float total = basic + hra + da; 
+Console.WriteLine(" Your employee number " + eno + " and Your name is" + 
+ename); 
+Console.WriteLine(" Your working as " + desig + "Your salary is " + total); 
+} 
+} 
+} 
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+							LAB SHEET 3(Control Flow Statements) 
+
+Level 1.   
+
+1. University wants to gift for those  date of birth falls on February 29th . Create a C# program that 
+will accept the  current  year. Check the leap year and issue them with surprise gift. 
+namespace My_First_Application 
+{ 
+    class birthyrcalculation 
+    {    
+          static void Main() 
+        { 
+            Console.WriteLine("enter your birth year"); 
+            int birthyear= Convert.ToInt32(Console.ReadLine()); 
+            if (birthyear % 4 == 0) 
+            { 
+                Console. WriteLine("Your Birthday falls on Feb 29th. specicial 
+Gift is waiting for u "); 
+            } 
+            else 
+            { 
+                Console.WriteLine("Sorry, You are not eligible for gift"); 
+            } 
+         } 
+    } 
+} 
+ 
+ 
+
+Level 1  
+
+2. Take the age  and name of two students in a class. Compare and display the oldest student 
+name and age.      
+namespace My_First_Application 
+{ 
+    internal class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            Console.WriteLine("Enter first student's name"); 
+            string sname1 = Console.ReadLine(); 
+            Console.WriteLine("Enter second student's name"); 
+            string sname2= Console.ReadLine(); 
+            Console.WriteLine("Enter first student's age"); 
+             int sage1 = int.Parse(Console.ReadLine()); 
+            Console.WriteLine("Enter second student's age"); 
+            int sage2 =int.Parse(Console.ReadLine()); 
+            if (sage1 >sage2) 
+            { 
+                Console.WriteLine(sname1 + "  is older than " + sname2); 
+                Console.Write(" Age of " + sname1 + " is " + sage1); 
+            } 
+            else  
+            { 
+                Console.WriteLine(sname1 + "is older than " + sname2); 
+                Console.Write("Age of " + sname1 + " is " + sage1); 
+            } 
+        } 
+    } 
+} 
+ 
+
+Level 2: 
+
+1. Write a code to award grade to a student. Get name of a student and three subjects 
+marks. Calculate the total marks and award Excellent, Good and Average.   
+Range 200 -300    Excellent, 100 -200  Good , less than 200 Average 
+namespace My_First_Application 
+{ 
+    internal class marks 
+    { 
+        static void Main(string[] args) 
+        { 
+            Console.WriteLine("Enter  student's name"); 
+            string sname1 = Console.ReadLine(); 
+            Console.WriteLine("Enter C# marks"); 
+            int marks1 = int.Parse(Console.ReadLine()); 
+            Console.WriteLine("Enter Os  marks"); 
+            int marks2 = int.Parse(Console.ReadLine()); 
+            Console.WriteLine("Enter maths marks"); 
+            int marks3 = int.Parse(Console.ReadLine()); 
+            int totalmarks = marks1 + marks2 + marks3; 
+            if (totalmarks <= 300 && totalmarks > 200) 
+                Console.WriteLine("Your grade is excellent"); 
+            else if (totalmarks <= 200 && totalmarks > 100) 
+                Console.WriteLine("Your grade is good"); 
+            else  
+                Console.WriteLine("Your grade is average"); 
+        } 
+    } 
+} 
+ 
+
+2. Write a code to check the given character is vowel or consonant. 
+internal class vowelchecking 
+    { 
+        static void Main() 
+        { 
+                Console.WriteLine("Enter the character");     
+                char ch = Convert.ToChar(Console. ReadLine()); 
+                switch (Char. ToLower(ch)) 
+                { 
+                    case 'a': 
+                    case 'e': 
+                    case 'i':                         
+                    case 'o':                         
+                    case 'u': 
+                        Console. WriteLine("Vowel"); 
+                        break; 
+                    default: 
+                        Console. WriteLine("Consonant"); 
+                        break; 
+               } 
+        } 
+    } 
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+									Lab sheet4(Loops)  
+
+Level 1  
+
+1. Write a code to calculate the sum of n numbers using for loop 
+namespace My_First_Application 
+{ 
+    internal class forloop 
+    { 
+        static void Main () 
+        { 
+            Console.WriteLine(" Enter the  N th number "); 
+            int range = Convert.ToInt32(Console.ReadLine()); 
+            int sum = 0; 
+            for(int i=0;i<=range;i++) 
+            { 
+                sum = sum + i; 
+            } 
+            Console.WriteLine("sum of numbers are " + sum); 
+        } 
+ 
+    } 
+} 
+ 
+ 
+2. Mr X wants to calculate the sum of odd numbers till Nth number using 
+while loop.  
+namespace My_First_Application 
+{ 
+    internal class sumofnumbers 
+    { 
+        public static void Main() 
+        { 
+            Console.WriteLine(" Enter the  N th number "); 
+            int range = Convert.ToInt32(Console.ReadLine()); 
+            int i=1,sum = 0; 
+            while(i<= range) 
+            { 
+                sum = sum + i; 
+                i = i + 2; 
+ 
+            } 
+            Console.WriteLine("sum of odd numbers are " + sum); 
+        } 
+    } 
+} 
+ 
+ 
+Level 2: 
+
+1.A developer wants to check the given number is Armstrong number or not.( 153= 13+53+33) 
+namespace My_First_Application 
+{ 
+    internal class Armstrong 
+    {   
+        static void Main() 
+        { 
+            int n, r, sum = 0, temp; 
+            Console.Write("Enter the Number= "); 
+            n = int.Parse(Console.ReadLine()); 
+            temp = n; 
+            while (n > 0) 
+            { 
+                r = n % 10; 
+                sum = sum + (r * r * r); 
+                n = n / 10; 
+            } 
+            if (temp == sum) 
+                Console.Write("Armstrong Number."); 
+            else 
+                Console.Write("Not Armstrong Number."); 
+        } 
+ 
+    } 
+} 
+ 
+
+2.Write a code to checking the given number is palindrome or not.  
+ 
+ namespace My_First_Application 
+{ 
+    internal class Palindrome 
+    { 
+        static void Main() 
+        { 
+            int num, rem, sum = 0, temp; 
+ 
+            Console.WriteLine("To Find a Number is Palindrome or not "); 
+            Console.Write("\n Enter a number: "); 
+            num = Convert.ToInt32(Console.ReadLine()); 
+            temp = num; 
+            while (num > 0) 
+            { 
+                rem = num % 10; 
+                num = num / 10; 
+                sum = sum * 10 + rem; 
+                 
+            } 
+            Console.WriteLine(" The Reversed Number is: {0} ", sum); 
+            if (temp == sum) 
+            { 
+                Console.WriteLine(" Number is Palindrome "); 
+            } 
+            else 
+            { 
+                Console.WriteLine(" Number is not a palindrome"); 
+            } 
+        } 
+    } 
+} 
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+                                             					Lab Sheet 5 
+
+Level 1 : Class Teacher wants to calculate the sum and average of her 
+students marks. Write a code to solve this. 
+namespace myfirstproject 
+{ 
+    internal class sumofnumbersarray 
+    { 
+        static void Main() 
+        { 
+            Console.Write("How many  student’s marks do you want to store"); 
+            int a= Convert.ToInt32(Console.ReadLine()); 
+            int[] arr1 = new int[a]; 
+            int sum = 0; 
+            float average = 0; 
+            for(int i=0;i<arr1.Length;i++) 
+            { 
+                Console.Write("enter " + i + " number"); 
+                arr1[i] = Convert.ToInt32(Console.ReadLine()); 
+                sum = sum + arr1[i]; 
+            } 
+            average= sum/arr1.Length; 
+            Console.WriteLine(); 
+            Console.WriteLine("Displaying array"); 
+            foreach(int j in arr1) 
+                Console.WriteLine(j); 
+            Console.WriteLine(" sum is " + sum); 
+            Console.WriteLine(" average  is " + average); 
+        } 
+    } 
+} 
+ 
+ 
+
+Level 1 :  Write a code  to search the number in a given array and its number 
+of occurrence also. 
+internal class arrayduplicate 
+    { 
+        static void Main() 
+        { 
+             int[] arr1 = {1,3,1,4,5,3,7,18,1,18}; 
+            Console.WriteLine(" Enter the number to be searched "); 
+            int searchnumber = Convert.ToInt32(Console.ReadLine()); 
+            int count = 0; 
+            int i; 
+            for (i= 0; i < arr1.Length; i++) 
+            { 
+                if(arr1[i] == searchnumber) 
+                    count++; 
+            } 
+            if (count > 0) 
+                Console.WriteLine("search number occured " + count); 
+            else 
+                Console.WriteLine("Not occured in the list"); 
+        } 
+    } 
+} 
+ 
+ 
+
+Level 2:  
+Arrange all student’s marks in descending order and display the highest marks 
+of the class. 
+namespace myfirstproject 
+{ 
+    internal class Arraysort 
+    { 
+        static void Main() 
+        { 
+            Console.Write("How many marks do you want to sort "); 
+            int a = Convert.ToInt32(Console.ReadLine()); 
+            int[] arr1 = new int[a]; 
+            int temp; 
+            for (int i = 0; i < arr1.Length; i++) 
+            { 
+                Console.Write("enter " + i + " marks "); 
+                arr1[i] = Convert.ToInt32(Console.ReadLine()); 
+            } 
+            for (int i = 0; i < a; i++) 
+            { 
+                for (int j = i + 1; j < a; j++) 
+                { 
+                    if (arr1[i] < arr1[j]) 
+                    { 
+                        temp = arr1[i]; 
+                        arr1[i] = arr1[j]; 
+                        arr1[j] = temp; 
+                    } 
+ 
+                } 
+            } 
+            Console.WriteLine(" Sorted Array"); 
+            foreach(int i in arr1) 
+            { 
+                Console.WriteLine(i); 
+            } 
+        } 
+         Console.WriteLine("Highest marks of the class " + arr1[0]); 
+    } 
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+											Lab Sheet 6 
+1. LEVEL 1 
+Write a code to display two dimensional array. 
+namespace myfirstproject 
+{ 
+    internal class _2dArray 
+    { 
+        static void Main() 
+        { 
+            int t; 
+            int[,] obj = new int[3, 4]; 
+            int count=1; 
+            for (t = 0; t < 3; t++) 
+            { 
+                for (int j = 0; j < 4; j++) 
+                { 
+                    obj[t, j] =count; 
+                    Console.Write(obj[t, j] + "  "); 
+                    Count = count+1; 
+                } 
+                Console.WriteLine(); 
+ 
+            } 
+        } 
+    } 
+} 
+ 
+ 
+ 
+ 
+ 
+2.Write a code to display two dimensional array showing only even 
+number like this :             2     4   6   8   10 
+                                            12 14 16  18  20  
+                     
+namespace myfirstproject 
+{ 
+    internal class _2dArray 
+    { 
+        static void Main() 
+        { 
+            int t; 
+            int[,] obj = new int[2, 5]; 
+            int count=2; 
+            for (t = 0; t < 2; t++) 
+            { 
+                for (int j = 0; j < 5; j++) 
+                { 
+                    obj[t, j] =count; 
+                    Console.Write(obj[t, j] + "  "); 
+                    Count = count+2; 
+                } 
+                Console.WriteLine(); 
+ 
+            } 
+        } 
+    } 
+} 
+ 
+ 
+3.Write a code to display two dimensional array showing only odd 
+number like this :             1    3     5 
+                                             7   9    11 
+                                             13  15  17 
+namespace myfirstproject 
+{ 
+    internal class _2dArray 
+    { 
+        static void Main() 
+        { 
+            int t; 
+            int[,] obj = new int[3, 3]; 
+            int count=1; 
+            for (t = 0; t < 3; t++) 
+            { 
+                for (int j = 0; j < 3; j++) 
+                { 
+                    obj[t, j] =count; 
+                    Console.Write(obj[t, j] + "  "); 
+                    Count = count+2; 
+                } 
+                Console.WriteLine(); 
+ 
+            } 
+        } 
+    } 
+} 
+--------------------------------------------------------------------------------------------------------------------------------
+
+								Lab Sheet 7(Structs and Classes) 
+1. Create a structure to store the book details. 
+namespace myfirstproject 
+{ 
+    internal struct Books 
+    { 
+        internal  string title; 
+        internal  string author; 
+        public float price; 
+        public int book_id; 
+        internal Books(string btitle, string auth, float bprice, int id) 
+        { 
+            title = btitle; 
+            author = auth; 
+            price = bprice; 
+            book_id = id; 
+        } 
+        public void disp() 
+        { 
+    Console.WriteLine(" Book Title is" + title + "and price is" + price); 
+        } 
+ 
+    } 
+    internal class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            Books book1 = new Books(); 
+            book1.title = "C# programming"; 
+            book1.author = "Herbert Schildt"; 
+            book1.book_id = 1001; 
+            book1.price = 1200; 
+            Console.WriteLine(book1.title); 
+            Console.WriteLine(book1.author);   
+            Console.WriteLine(book1.price);  
+            Console.WriteLine(book1.book_id); 
+            Books book2 = new Books("Java programmig", "Herbert Schildt", 1002, 
+1300); 
+            book2.disp(); 
+        } 
+    } 
+ 
+} 
+ 
+ 
+ 
+2. Define a class ‘student’ with data members stno, stname and age. Also 
+include following: Default Constructor and parameterized constructor, 
+display method to show all details. 
+namespace myfirstproject 
+{ 
+    internal class student 
+    { 
+        int studno; 
+        string studname; 
+        int age; 
+        public student() 
+        { 
+            studno=2020120; 
+            studname = "Ravi"; 
+            age = 29; 
+        } 
+        internal student(int stno, string stname, int stage) 
+        { 
+            studno = stno; 
+            studname = stname; 
+            age = stage; 
+        } 
+        public void display() 
+        { 
+            Console.Write(" your roll number is " + studno); 
+            Console.WriteLine(" , your name is " + studname + " , age is "+age) ; 
+        } 
+    } 
+    class Sttest 
+    { 
+        static void Main() 
+        { 
+            student obj1 = new student(); 
+            obj1.display(); 
+            Console.WriteLine("Enter your roll number"); 
+            int rollno= Convert.ToInt32(Console.ReadLine()); 
+            Console.WriteLine("enter your name"); 
+            string name = Console.ReadLine(); 
+            Console.WriteLine("enter your age"); 
+            int age1= Convert.ToInt32(Console.ReadLine()); 
+            student obj2 = new student(rollno, name, age1); 
+            obj2.display(); 
+        } 
+ 
+    } 
+} 
+ 
+ 
+3.Design a class to represent a bank account. Include the following 
+members: Data Members: - Name of the depositor, Account Number, Type 
+of Account, Balance amount in the account  and methods : To assign initial 
+values, To deposit an amount, To withdraw an amount  after checking 
+balance, To display name and the balance. Write a c# program to 
+demonstrate the working of the various class members. 
+ 
+              namespace myfirstproject 
+      { 
+    class Bank_Account 
+    { 
+        static int balance; 
+        int amt; 
+        internal Bank_Account() 
+        { 
+            balance = 20000; 
+        } 
+        public void deposit() 
+        { 
+            Console.WriteLine("Enter the amount "); 
+            amt = Convert.ToInt32(Console.ReadLine()); 
+            balance += amt; 
+            Console.WriteLine("New Balance is " + balance); 
+        } 
+        public void withdraw() 
+        { 
+            Console.WriteLine("Your Balance is " + balance); 
+            Console.WriteLine("Enter amount to be withdrawn"); 
+            int w_amt = Convert.ToInt32(Console.ReadLine()); 
+            balance -= w_amt; 
+            Console.WriteLine("New Balance is" + balance); 
+        } 
+        internal void details() 
+        { 
+            Console.WriteLine(" Balance is " + balance); 
+        } 
+    } 
+    class bankchecking 
+    {  
+        public static void Main() 
+        { 
+            Bank_Account obj = new Bank_Account(); 
+ 
+            int ch; 
+            do 
+            { 
+                Console.WriteLine("Press 1 to check Balance "); 
+                Console.WriteLine("Press 2 to withdraw money "); 
+                Console.WriteLine("Press 3 to deposit "); 
+                ch = Convert.ToInt32(Console.ReadLine()); 
+                switch (ch) 
+                { 
+                    case 1: 
+                        obj.details(); 
+                        break; 
+                    case 2: 
+                        obj.withdraw(); 
+                        break; 
+                    case 3: 
+                        obj.deposit(); 
+                        break; 
+                    default: 
+                        Console.WriteLine("Please Enter Correct number"); 
+                        break; 
+                } 
+            } while (ch <= 3); 
+        } 
+    } 
+ 
+} 
+ 
+ 
+4. Write a C# Program to find out the area of the triangle , square, and rectangle 
+using method overloading. 
+namespace myfirstproject 
+{ 
+    internal class overloading 
+    { 
+        static void area(int a, int b) 
+        { 
+            Console.WriteLine("area of triangle is=" + ((a * b) / 2)); 
+        } 
+        static void area(int a) 
+        { 
+            Console.WriteLine("area of square is=" + (a * a)); 
+        } 
+        static void area(int a, double b) 
+        { 
+            Console.WriteLine("area of rectangle is=" + (a * b)); 
+        } 
+        static void Main(string[] args) 
+        { 
+            overloading.area(8, 5); 
+            overloading.area(5); 
+            overloading.area(6, 8.7); 
+            Console.ReadKey(); 
+        } 
+    } 
+ 
+} 
+ 
+ 
+ 
+ 
+5. To develop a console application to implement operator overloading in C# 
+ 
+namespace myfirstproject 
+{ 
+      class calc 
+        { 
+           int number1, number2; 
+            public calc(int num1, int num2) 
+            { 
+                number1 = num1; 
+                number2 = num2; 
+            } 
+            public static calc operator -(calc c1) 
+            { 
+                c1.number1 = -c1.number1; 
+                c1.number2 = -c1.number2; 
+                return c1; 
+            } 
+ 
+             public void Print() 
+            { 
+                Console.WriteLine("Number1 = " + number1); 
+                Console.WriteLine("Number2 = " + number2); 
+            } 
+        } 
+ 
+        class opoverload2 
+        {   
+        static void Main(string[] args) 
+        {              
+            calc obj = new calc(15, -25); 
+            obj = -obj; 
+            obj.Print();    
+        } 
+        } 
+    } 
+--------------------------------------------------------------------------------------------------------------------------------
+
+											LAB SHEET 8 
+ 
+1, Create a Class class called Rectangle and store 
+length, width using constructor.Calculate the area 
+using that. Create tabletop using rectangle class 
+and calculate the cost of painting that table 
+top.(Use single inheritance) 
+ 
+namespace myfirstproject 
+{   class Rectangle 
+    { 
+        protected double length, width; 
+        protected double calcarea; 
+        protected Rectangle() 
+        { 
+            length = 0; 
+            width = 0; 
+        } 
+         
+        public void Area() 
+        { 
+            calcarea = length * width; 
+            Console.WriteLine(" Area is "+ calcarea); 
+           
+        } 
+    } 
+    class tabletop : Rectangle 
+    { 
+        double cost; 
+        public tabletop() 
+        { 
+            cost = 0; 
+        } 
+        internal  tabletop(double length, double width) 
+        { 
+            this.length = length; 
+            this.width = width; 
+        } 
+        public void calcost() 
+        { 
+            Area(); 
+            cost = 1000; 
+            double totalcost = calcarea * cost; 
+            Console.WriteLine("Total cost is " + totalcost); 
+        } 
+    } 
+    internal class Inheritance1 
+    { 
+        static void Main() 
+        { 
+            Console.WriteLine(" Enter length and Width"); 
+            double l = Convert.ToDouble(Console.ReadLine()); 
+            double w = Convert.ToDouble(Console.ReadLine()); 
+            tabletop obj = new tabletop(l, w); 
+            obj.calcost(); 
+        } 
+    } 
+} 
+ 
+ 
+2. Create class called Employee with id and salary. Employee 
+class is inheriting from Man class. Man is inheriting from 
+Human class. Name and age should be defined in Human and 
+Man class respectively. Include display method in Employee 
+class to display all details.(Use Multilevel Inheritance) 
+ 
+ 
+namespace myfirstproject 
+{ 
+    class Human 
+    { 
+        public string name; 
+        public Human(string na) 
+        { 
+            name = na; 
+        } 
+    } 
+    class Man : Human 
+    { 
+        public int age; 
+        public Man(int age, string name) : base(name) 
+        { 
+            this.age = age; 
+        } 
+    } 
+  class Employee : Man 
+    { 
+        public int emp_id; 
+        public int emp_salary; 
+ 
+        public Employee(int id, int salary, string name, int age) : base(age, 
+name) 
+        { 
+            emp_id = id; 
+            emp_salary = salary; 
+        } 
+        public void Print() 
+        { 
+            Console.WriteLine("Emp ID:      " + emp_id); 
+            Console.WriteLine("Emp Name:    " + name); 
+            Console.WriteLine("Emp Salary:  " + emp_salary); 
+            Console.WriteLine("Emp Age:     " + age); 
+        } 
+    } 
+       
+    } 
+ 
+    internal class multilevel 
+    { 
+       static void Main(string[] args) 
+    { 
+        Employee emp = new Employee(2001, 10000, "Vinay ", 31); 
+        emp.Print(); 
+    } 
+} 
+ 
+3. A company has two types of employees. 1. Salaried 
+and 2.Daily wage. Salaried employees have their 
+position and basic salary. Daily waged employees have 
+basic and number of days worked. Accounts department 
+wants to calculate the salary for both the type of 
+employees and want to display all details about the 
+employee. Write a code in C# to implement this concept 
+with the use of hierarchical inheritance. 
+ 
+namespace myfirstproject 
+{ 
+    class Emp  
+    { 
+         int emp_id; 
+         string emp_name; 
+ 
+        protected Emp(int id,  string name)  
+        { 
+            this.emp_id = id; 
+            emp_name = name; 
+        } 
+        public  virtual void Print() 
+        { 
+            Console.WriteLine("Emp ID:      " + emp_id); 
+            Console.WriteLine("Emp Name:    " + emp_name); 
+         } 
+    } 
+    class salaried:Emp 
+    { 
+        int basic; 
+        string position; 
+        internal salaried(int id,string name,int basicsalary, string posi): 
+base(id,name) 
+        { 
+            basic = basicsalary; 
+            position = posi; 
+        } 
+        public void calculate() 
+        { 
+            float total =basic + (basic *0.3f) + (basic* 0.5f); 
+            Console.WriteLine(" Total salary is " + total); 
+        } 
+        public override void Print() 
+        { 
+            base.Print(); 
+            Console.WriteLine(" Your position is" + position); 
+            calculate(); 
+        } 
+ 
+    } 
+    class dailywage : Emp 
+    { 
+        int basic; 
+        int noofdays; 
+        internal dailywage(int id, string name, int basicsalary, int days) : 
+base(id, name) 
+        { 
+            basic = basicsalary; 
+            noofdays = days; 
+        } 
+        public void calculate() 
+        { 
+            float total = basic * noofdays; 
+            Console.WriteLine(" Total salary is " + total); 
+        } 
+        public override void Print() 
+        { 
+            base.Print(); 
+            Console.WriteLine(" You have worked " + noofdays + "days"); 
+            calculate(); 
+        } 
+ 
+    } 
+    internal class inher3 
+    { 
+        static void Main() 
+        { 
+            salaried obj1 = new salaried(1001, "Akshitha", 40000, "Manager"); 
+            obj1.Print(); 
+            dailywage obj2 = new dailywage(1002, "Raman", 15000, 25); 
+            obj2.Print(); 
+        } 
+    } 
+} 
+ 
+
+4. Write a code to show multiple inheritance  
+namespace myfirstproject 
+{ 
+    internal interface inter1 
+    { 
+        void add(int a,int b); 
+        void disp(); 
+    } 
+    internal interface inter2 
+    { 
+        void calculate(float a); 
+    } 
+    internal class interchecking:inter1,inter2 
+    { 
+        public void add(int a,int b) 
+        { 
+            int c = a + b; 
+            Console.WriteLine("Answer is " + c); 
+        } 
+        public void disp() 
+        { 
+            Console.WriteLine(" demo of interface"); 
+        } 
+        public void calculate(float a) 
+        { 
+            float area = 3.14f * a * a; 
+            Console.WriteLine(" area is " + area); 
+        } 
+        static void Main() 
+        { 
+            interchecking checker = new interchecking(); 
+            checker.add(100, 200); 
+            checker.disp(); 
+            checker.calculate(12.5f); 
+        } 
+ 
+    } 
+} 
+ 
+ 
+5. Write a code to show explicit implementation of interfaces 
+namespace myfirstproject 
+{ 
+    internal interface inter11 
+    { 
+        void add(int a, int b); 
+       
+    } 
+    internal interface inter21 
+    { 
+        void add(int a, int b); 
+    } 
+    internal class interchecking2 : inter11,inter21    
+ { 
+       void inter11.add(int a, int b) 
+        { 
+            int c = a + b; 
+            Console.WriteLine("Answer is " + c); 
+        } 
+        void inter21.add(int a, int b) 
+        { 
+            int result = a + b; 
+            Console.WriteLine(" result is" + result); 
+        } 
+        static void Main() 
+        { 
+            inter11 checker = new interchecking2(); 
+            inter21 checker2= new interchecking2(); 
+            checker.add(10, 20); 
+            Console.WriteLine(" enter two marks"); 
+            int marks1 = Convert.ToInt32(Console.ReadLine()); 
+            int marks2= Convert.ToInt32(Console.ReadLine()); 
+            checker2.add(marks1, marks2); 
+             
+        } 
+ 
+    } 
+} 
+--------------------------------------------------------------------------------------------------------------------------------

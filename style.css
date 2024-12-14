@@ -1,0 +1,102 @@
+* {
+    margin : 0;
+    padding : 0;
+}
+.Background {
+    position: absolute; 
+    height: 100%; 
+    width: 100%; 
+    background-image: url("360_F_764557526_HlwV6rYpIxrfhrmlpTzl74INFoMmJs9Z.jpg"); 
+    background-size: cover; 
+    filter: blur(0.5px);
+    z-index: -1;
+}
+.Header {
+    padding-top: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Cart {
+    background-color:white;
+    padding : 25px;
+    padding-right: 100px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 3px dashed black;
+}
+.Price {
+    background-color:white;
+    padding : 25px;
+    padding-right: 24%;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 3px dashed black;
+}
+.Container {
+    width:100%
+}
+.Items {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color:white;
+    padding : 25px;
+    padding-right: 100px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 3px dashed black;
+}
+.Rate {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color:white;
+    padding : 25px;
+    padding-right: 100px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 3px dashed black;
+}
+#footer:empty {
+    display: none;
+ }
+#footer {
+    text-align: center;
+    background-color:white;
+    padding : 25px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top: 50px;
+    border-radius: 25px;
+    border: 3px dashed black;
+}
+#delete-cart {
+    padding: 10px 20px;
+    background-color:green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#delete-cart:hover {
+    background-color:#f44336;
+}
+
+#print-button{
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#print-button:hover {
+    background-color: green;
+}
